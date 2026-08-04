@@ -1,0 +1,31 @@
+services:
+  # docker-scp-rsync-prep:
+  #   image: docker-scp-rsync:prep
+  #   # build:
+  #   #   context: .
+  #   #   dockerfile: Dockerfile.prep
+  #   pull_policy: never
+  #   container_name: docker-scp-rsync-prep
+  #   volumes:
+  #     - ./data:/output
+  #   restart: "no"
+
+  docker-scp-rsync:
+    image: docker-scp-rsync:latest
+    # build:
+    #   context: .
+    #   dockerfile: Dockerfile
+    pull_policy: never
+    container_name: docker-scp-rsync
+    # depends_on:
+    #   docker-scp-rsync-prep:
+    #     condition: service_completed_successfully
+    volumes:
+      # - ./data/passwd:/etc/passwd
+      # - ./data/shadow:/etc/shadow
+      # - ./data/group:/etc/group
+      - ./data:/data
+      - ./userfiles:/home
+    ports:
+      - "2222:22"
+    restart: unless-stopped
