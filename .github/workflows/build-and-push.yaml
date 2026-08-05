@@ -36,3 +36,4 @@ jobs:
           tags: |
             ghcr.io/${{ github.repository }}:${{ github.ref_name }}_${{ env.BUILD_TAG }}
             ghcr.io/${{ github.repository }}:${{ github.ref_name }}
+            ghcr.io/${{ github.repository }}:latest
