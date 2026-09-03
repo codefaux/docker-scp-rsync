@@ -25,7 +25,6 @@ PermitEmptyPasswords no
 PubkeyAuthentication yes
 KbdInteractiveAuthentication yes
 PasswordAuthentication no
-GSSAPIAuthentication no
 HostbasedAuthentication no
 PermitUserEnvironment no
 PermitUserRC no
@@ -35,9 +34,9 @@ UsePAM yes
 PasswordAuthentication no
 AuthenticationMethods publickey,keyboard-interactive
 
-PerSourceMaxStartups 2:85:4
+PerSourceMaxStartups 2
 MaxAuthTries 2
-PerSourcePenalties noauth:24h invaliduser:24h authfail:24h grace-exceeded:24h
+PerSourcePenalties crash:90 authfail:24h noauth:24h invaliduser:24h grace-exceeded:24h refuseconnection:24h max:24h min:1s max-sources4:65536 max-sources6:65536 overflow:permissive overflow6:permissive
 PerSourceNetblockSize 24:64
 
 KexAlgorithms curve25519-sha256@libssh.org,ecdh-sha2-nistp521,ecdh-sha2-nistp384,ecdh-sha2-nistp256,diffie-hellman-group-exchange-sha256
